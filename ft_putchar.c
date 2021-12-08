@@ -6,18 +6,14 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 21:38:53 by lelhlami          #+#    #+#             */
-/*   Updated: 2021/12/05 22:19:22 by lelhlami         ###   ########.fr       */
+/*   Updated: 2021/12/08 13:21:09 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_putchar(int c)
+void	ft_putchar(int c, t_print *ptr)
 {
-	size_t	s;
-
-	s = write(1, &c, 1);
-	if (s == -1)
-		return (EOF);
-	return (c);
+	write(1, &c, 1);
+	ptr -> len += 1;
 }

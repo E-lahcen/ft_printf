@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lelhlami <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 00:22:59 by lelhlami          #+#    #+#             */
-/*   Updated: 2021/11/29 00:31:27 by lelhlami         ###   ########.fr       */
+/*   Created: 2021/12/08 09:34:29 by lelhlami          #+#    #+#             */
+/*   Updated: 2021/12/08 13:22:24 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putpointer(L nb, char *base, t_print	*ptr)
 {
-	write(fd, &c, 1);
+	if (nb >= 16)
+	{
+		ft_putpointer(nb / 16, base, ptr);
+	}
+	ft_putchar(base[nb % 16], ptr);
 }

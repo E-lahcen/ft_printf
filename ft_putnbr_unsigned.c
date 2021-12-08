@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lelhlami <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 15:58:53 by lelhlami          #+#    #+#             */
-/*   Updated: 2021/11/29 16:08:07 by lelhlami         ###   ########.fr       */
+/*   Created: 2021/12/07 14:15:22 by lelhlami          #+#    #+#             */
+/*   Updated: 2021/12/08 13:14:29 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_putnbr_unsigned(unsigned int nb, t_print	*ptr)
 {
-	if (lst && f)
+	if (nb >= 0 && nb <= 9)
 	{
-		while (lst)
-		{
-			f(lst -> content);
-			lst = lst ->next;
-		}
+		ft_putchar('0' + nb, ptr);
+	}
+	else if (nb >= 10)
+	{
+		ft_putnbr_unsigned(nb / 10, ptr);
+		ft_putchar('0' + nb % 10, ptr);
 	}
 }

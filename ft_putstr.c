@@ -3,23 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lelhlami <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 16:44:33 by lelhlami          #+#    #+#             */
-/*   Updated: 2019/07/22 19:18:00 by lelhlami         ###   ########.fr       */
+/*   Updated: 2021/12/08 13:21:47 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include "ft_printf.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(char *str, t_print *ptr)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (!str)
+		ft_putstr("(null)", ptr);
+	else
 	{
-		ft_putchar(str[i]);
-		i++;
+		while (str[i])
+		{
+			ft_putchar(str[i], ptr);
+			i++;
+		}
 	}
 }
